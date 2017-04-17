@@ -10,6 +10,7 @@
 		144985521EA49771009E1EE7 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985511EA49771009E1EE7 /* LocalFileManager.swift */; };
 		144985561EA4A027009E1EE7 /* HttpClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985551EA4A027009E1EE7 /* HttpClientManager.swift */; };
 		144985581EA4A49E009E1EE7 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985571EA4A49E009E1EE7 /* LibraryAPI.swift */; };
+		1449855A1EA4B52C009E1EE7 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985591EA4B52C009E1EE7 /* PersistencyManager.swift */; };
 		D2CAAA8B1EA479AD00785B37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAAA8A1EA479AD00785B37 /* AppDelegate.swift */; };
 		D2CAAA8D1EA479AD00785B37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAAA8C1EA479AD00785B37 /* ViewController.swift */; };
 		D2CAAA901EA479AD00785B37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CAAA8E1EA479AD00785B37 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		144985511EA49771009E1EE7 /* LocalFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalFileManager.swift; path = API/LocalFileManager.swift; sourceTree = "<group>"; };
 		144985551EA4A027009E1EE7 /* HttpClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpClientManager.swift; path = API/HttpClientManager.swift; sourceTree = "<group>"; };
 		144985571EA4A49E009E1EE7 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryAPI.swift; path = API/LibraryAPI.swift; sourceTree = "<group>"; };
+		144985591EA4B52C009E1EE7 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistencyManager.swift; path = API/PersistencyManager.swift; sourceTree = "<group>"; };
 		D2CAAA871EA479AD00785B37 /* BlueLibrarySwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueLibrarySwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CAAA8A1EA479AD00785B37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CAAA8C1EA479AD00785B37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -160,9 +162,10 @@
 		D2CAAABE1EA47A6D00785B37 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				144985571EA4A49E009E1EE7 /* LibraryAPI.swift */,
 				144985511EA49771009E1EE7 /* LocalFileManager.swift */,
 				144985551EA4A027009E1EE7 /* HttpClientManager.swift */,
-				144985571EA4A49E009E1EE7 /* LibraryAPI.swift */,
+				144985591EA4B52C009E1EE7 /* PersistencyManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				D2CAAA931EA479AD00785B37 /* BlueLibrarySwift.xcdatamodeld in Sources */,
 				144985581EA4A49E009E1EE7 /* LibraryAPI.swift in Sources */,
 				D2CAAAC01EA47AF700785B37 /* readme.md in Sources */,
+				1449855A1EA4B52C009E1EE7 /* PersistencyManager.swift in Sources */,
 				D2CAAA8B1EA479AD00785B37 /* AppDelegate.swift in Sources */,
 				D2CAAAC21EA47E1900785B37 /* Album.swift in Sources */,
 				144985521EA49771009E1EE7 /* LocalFileManager.swift in Sources */,

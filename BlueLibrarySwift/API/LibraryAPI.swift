@@ -24,12 +24,13 @@ class LibraryAPI
     
     let httpClientManager:HttpClientManager
     let localFileManager:LocalFileManager
-    
+    let persistencyManager:PersistencyManager
     
     init()
     {
         httpClientManager = HttpClientManager()
         localFileManager = LocalFileManager()
+        persistencyManager = PersistencyManager()
     }
     
     /// down image
@@ -41,5 +42,14 @@ class LibraryAPI
             self.localFileManager.saveImageToDocument(location: location, imageName: "")
         }
     }
+    
+    
+    /// get album array
+    func getAlbumArray()->[Album]
+    {
+        //
+        return persistencyManager.getAlbums()
+    }
+    
     
 }

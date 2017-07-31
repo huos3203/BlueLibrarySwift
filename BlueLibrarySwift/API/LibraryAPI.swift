@@ -7,14 +7,16 @@
 //
 
 import UIKit
-
+//外观模式（Facade）作为专辑管理类的入口
+//LibraryAPI 暴露一个简单的接口给其他类来访问，这样外部的访问类不需要知道内部的业务具体是怎样的，也不用知道你是通过 PersistencyManager 还是 HTTPClient 获取到数据的
 /// 使用创建型单例模式，结构型外观模式封装各层级接口
 class LibraryAPI: NSObject
 {
-    ///单例，类计算属性
+    ///单例，计算属性的类变量
     class var shared:LibraryAPI {
         
         struct Singleton {
+            //存储类型的类常量，延时加载的策略(static静态修饰符)
             static let instance = LibraryAPI()
         }
         
@@ -34,25 +36,30 @@ class LibraryAPI: NSObject
         
         isOnline = false
         super.init()
-        NotificationCenter.default.addObserver(self, selector:Selector(("downloadImage:")), name: Notification.Name(rawValue: "BLDownloadImageNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(LibraryAPI.downloadImage(notification:)),
+                                               name: Notification.Name(rawValue: "BLDownloadImageNotification"),
+                                               object: nil)
     }
     
-    /// get album array
-    func getAlbums()->[Album]
-    {
-        //
-        return persistencyManager.getAlbums()
-    }
-    
+    //MARK: - 管理专辑： 增删改查
     func addAlbum(_ album: Album, index: Int) {
         persistencyManager.addAlbum(album, index: index)
         if isOnline {
             httpClientManager.postRequest("/api/addAlbum", body: album.description)
         }
     }
+    
     func saveAlbums() {
         persistencyManager.saveAlbums()
     }
+    
+    func getAlbums()->[Album]
+    {
+        //
+        return persistencyManager.getAlbums()
+    }
+    
+    
     func deleteAlbum(_ index: Int) {
         persistencyManager.deleteAlbumAt(index)
         if isOnline {
@@ -60,13 +67,14 @@ class LibraryAPI: NSObject
         }
     }
     
-    /// down image
+    
+    //MARK: - 加载专辑封面图片
     func downloadImageByURLSession()
     {
         ///
         httpClientManager.downImageBy(url: URL.init(string: "")!) { (location) in
             ///
-            self.localFileManager.saveImageToDocument(location: location, imageName: "")
+//            self.localFileManager.saveImageToDocument(location: location, imageName: "")
         }
     }
     
@@ -74,21 +82,31 @@ class LibraryAPI: NSObject
         //1
         let userInfo = notification.userInfo as! [String: AnyObject]
         let imageView = userInfo["coverImage"] as! UIImageView?
-        let coverUrl = userInfo["coverUrl"] as! NSString
+        let coverUrl = userInfo["coverUrl"] as! String
         imageView?.image = UIImage(named: "barcelona-thumb")
         //2
         if let imageViewUnWrapped = imageView {
-            imageViewUnWrapped.image = persistencyManager.getImage(coverUrl.lastPathComponent)
+            imageViewUnWrapped.image = persistencyManager.getImage((coverUrl as NSString).lastPathComponent)
             if imageViewUnWrapped.image == nil {
-                //3
+                
+                httpClientManager.downImageBy(url: URL(string: coverUrl)!, complecion: { (location) in
+                    
+                    let downloadedImage = UIImage.init(contentsOfFile: location)
+                    imageViewUnWrapped.image = downloadedImage
+                })
+                /*/3
                 DispatchQueue.global().async {
                     let downloadedImage = self.httpClientManager.downloadImage(url: coverUrl as String)
                     //4
                     DispatchQueue.main.async {
                         imageViewUnWrapped.image = downloadedImage
-                        self.persistencyManager.saveImage(image: downloadedImage, filename: coverUrl.lastPathComponent)
+                        if let image = downloadedImage{
+                            self.persistencyManager.saveImage(image: image, filename: coverUrl.lastPathComponent)
+                        }
+                        
                     }
                 }
+                */
             }
         }
     }

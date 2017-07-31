@@ -20,31 +20,32 @@ class PersistencyManager
         let album1 = Album(title: "Best of Bowie",
                            artist: "David Bowie",
                            gener: "Pop",
-                           coverUrl: "http://huos3203.github.io/MyBlog/images/QQ20160114-0.png",
+                           coverUrl: "http://boyers.coding.me/images/QQ20160114-0.png",
                            year: "1992")
         
         let album2 = Album(title: "It's My Life",
                            artist: "No Doubt",
                            gener: "Pop",
-                           coverUrl: "http://huos3203.github.io/MyBlog/images/vIfAjiY.png!web.png",
+                           coverUrl: "http://boyers.coding.me/images/vIfAjiY.png!web.png",
                            year: "2003")
         
         let album3 = Album(title: "Nothing Like The Sun",
                            artist: "Sting",
                            gener: "Pop",
-                           coverUrl: "http://huos3203.github.io/MyBlog/images/IMG_0028.JPG",
+                           coverUrl: "http://boyers.coding.me/images/IMG_0028.JPG",
                            year: "1999")
         
         let album4 = Album(title: "Staring at the Sun",
                            artist: "U2",
                            gener: "Pop",
-                           coverUrl: "http://huos3203.github.io/MyBlog/images/QQ20160114-1.png",
+                           coverUrl: "http://boyers.coding.me/images/QQ20160114-1.png",
                            year: "2000")
+        
         
         let album5 = Album(title: "American Pie",
                            artist: "Madonna",
                            gener: "Pop",
-                           coverUrl: "http://huos3203.github.io/MyBlog/images/QbMJNrM.png!web.png",
+                           coverUrl: "http://boyers.coding.me/images/QbMJNrM.png!web.png",
                            year: "2000")
         
         albums = [album1, album2, album3, album4, album5]
@@ -65,9 +66,9 @@ class PersistencyManager
         }
     }
     func saveAlbums() {
-        var filename = NSHomeDirectory().appending("/Documents/albums.bin")
+        let filename = NSHomeDirectory().appending("/Documents/albums.bin")
         let data = NSKeyedArchiver.archivedData(withRootObject: albums)
-        (data as! NSData).writeToFile(filename, atomically: true)
+        (data as NSData).write(toFile: filename, atomically: true)
     }
     //删除操作
     func deleteAlbumAt(_ index:Int) {
@@ -94,6 +95,6 @@ class PersistencyManager
     func saveImage(image: UIImage, filename: String) {
         let path = NSHomeDirectory().appending("/Documents/\(filename)")
         let data = UIImagePNGRepresentation(image)
-        (data as! NSData).writeToFile(path, atomically: true)
+        (data! as NSData).write(toFile: path, atomically: true)
     }
 }

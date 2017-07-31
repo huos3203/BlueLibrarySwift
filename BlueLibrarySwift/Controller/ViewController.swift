@@ -14,9 +14,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scroller: HorizontalScroller!
     
-    private var allAlbums = [Album]()
-    private var currentAlbumData : (titles:[String], values:[String?])?
-    private var currentAlbumIndex = 0
+    var allAlbums = [Album]()
+    var currentAlbumData : (titles:[String], values:[String?])?
+    var currentAlbumIndex = 0
     
     // We will use this array as a stack to push and pop operation for the undo option
     var undoStack: [(Album, Int)] = []
@@ -182,7 +182,7 @@ extension ViewController: HorizontalScrollerDelegate {
     
     func horizontalScrollerViewAtIndex(scroller: HorizontalScroller, index: Int) -> (UIView) {
         let album = allAlbums[index]
-        let albumView = AlbumView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), albumCover: album.coverUrl)
+        let albumView = AlbumView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), ablumCover: album.coverUrl!)
         if currentAlbumIndex == index {
             albumView.highlightAlbum(didHighlightView: true)
         } else {
@@ -193,12 +193,12 @@ extension ViewController: HorizontalScrollerDelegate {
     
     func horizontalScrollerClickedViewAtIndex(scroller: HorizontalScroller, index: Int) {
         //1
-        let previousAlbumView = scroller.viewAtIndex(currentAlbumIndex) as! AlbumView
+        let previousAlbumView = scroller.viewAtIndex(index:currentAlbumIndex) as! AlbumView
         previousAlbumView.highlightAlbum(didHighlightView: false)
         //2
         currentAlbumIndex = index
         //3
-        let albumView = scroller.viewAtIndex(index) as! AlbumView
+        let albumView = scroller.viewAtIndex(index: index) as! AlbumView
         albumView.highlightAlbum(didHighlightView: true)
         //4
         showDataForAlbum(index)

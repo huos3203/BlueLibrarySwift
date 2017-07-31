@@ -18,10 +18,8 @@ class HttpClientManager: NSObject
 {
     
     
-    typealias handlerType = (URL)->Void
+    typealias handlerType = (String)->Void
     var complection:handlerType?
-    
-    
     
     ///下载接口
     func downImageBy(url:URL,complecion:@escaping handlerType)
@@ -31,19 +29,25 @@ class HttpClientManager: NSObject
             //
             if error != nil
             {
-                print("\(error?.localizedDescription)")
+                print("\(String(describing: error?.localizedDescription))")
             }
-            complecion(location!)
+            complecion((location?.absoluteString)!)
         }
         
     }
     
     ///
-    func downloadImage(url: String) -> (UIImage) {
+    func downloadImage(url: String) -> UIImage? {
+        print("图片地址：\(url)")
         let aUrl = URL(string: url)
-        let data = try! Data(contentsOf: aUrl!)
-        let image = UIImage(data: data)
-        return image!
+        var image:UIImage!
+        do {
+            let data = try Data(contentsOf: aUrl!)
+            image = UIImage(data: data)
+        } catch {
+            print("88888\(error.localizedDescription)")
+        }
+        return image
     }
     
     
@@ -60,7 +64,7 @@ class HttpClientManager: NSObject
                 print("删除错误：\(error?.localizedDescription)")
             }
             
-            hander(URL.init(string: "")!)
+            hander((response?.url?.absoluteString)!)
         }
     }
     

@@ -88,12 +88,18 @@ class LibraryAPI: NSObject
         if let imageViewUnWrapped = imageView {
             imageViewUnWrapped.image = persistencyManager.getImage((coverUrl as NSString).lastPathComponent)
             if imageViewUnWrapped.image == nil {
-                
+              /*/
+                 */
                 httpClientManager.downImageBy(url: URL(string: coverUrl)!, complecion: { (location) in
                     
                     let downloadedImage = UIImage.init(contentsOfFile: location)
-                    imageViewUnWrapped.image = downloadedImage
+                    //更新UI
+                    DispatchQueue.main.async {
+                        imageViewUnWrapped.image = downloadedImage
+                    }
+                    
                 })
+ 
                 /*/3
                 DispatchQueue.global().async {
                     let downloadedImage = self.httpClientManager.downloadImage(url: coverUrl as String)
@@ -101,7 +107,7 @@ class LibraryAPI: NSObject
                     DispatchQueue.main.async {
                         imageViewUnWrapped.image = downloadedImage
                         if let image = downloadedImage{
-                            self.persistencyManager.saveImage(image: image, filename: coverUrl.lastPathComponent)
+                            self.persistencyManager.saveImage(image: image, filename: (coverUrl as NSString).lastPathComponent)
                         }
                         
                     }

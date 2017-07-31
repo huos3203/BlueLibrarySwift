@@ -25,15 +25,15 @@ class HttpClientManager: NSObject
     func downImageBy(url:URL,complecion:@escaping handlerType)
     {
         ///
-        URLSession.shared.downloadTask(with: url) { (location, response, error) in
+       let task =  URLSession.shared.downloadTask(with: url) { (location, response, error) in
             //
             if error != nil
             {
-                print("\(String(describing: error?.localizedDescription))")
+                print("qqqq:\(String(describing: error?.localizedDescription))")
             }
             complecion((location?.absoluteString)!)
         }
-        
+        task.resume()
     }
     
     ///

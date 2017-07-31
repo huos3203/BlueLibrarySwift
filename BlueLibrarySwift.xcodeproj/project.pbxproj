@@ -11,6 +11,9 @@
 		144985561EA4A027009E1EE7 /* HttpClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985551EA4A027009E1EE7 /* HttpClientManager.swift */; };
 		144985581EA4A49E009E1EE7 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985571EA4A49E009E1EE7 /* LibraryAPI.swift */; };
 		1449855A1EA4B52C009E1EE7 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144985591EA4B52C009E1EE7 /* PersistencyManager.swift */; };
+		14ADB5BA1F2ECB8A008BB54B /* AlbumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADB5B91F2ECB8A008BB54B /* AlbumExtensions.swift */; };
+		14ADB5BE1F2ECCE1008BB54B /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADB5BD1F2ECCC2008BB54B /* AlbumView.swift */; };
+		14ADB5C11F2ECD60008BB54B /* HorizontalScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADB5C01F2ECD60008BB54B /* HorizontalScroller.swift */; };
 		D2CAAA8B1EA479AD00785B37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAAA8A1EA479AD00785B37 /* AppDelegate.swift */; };
 		D2CAAA8D1EA479AD00785B37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAAA8C1EA479AD00785B37 /* ViewController.swift */; };
 		D2CAAA901EA479AD00785B37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CAAA8E1EA479AD00785B37 /* Main.storyboard */; };
@@ -45,6 +48,10 @@
 		144985551EA4A027009E1EE7 /* HttpClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpClientManager.swift; path = API/HttpClientManager.swift; sourceTree = "<group>"; };
 		144985571EA4A49E009E1EE7 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryAPI.swift; path = API/LibraryAPI.swift; sourceTree = "<group>"; };
 		144985591EA4B52C009E1EE7 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistencyManager.swift; path = API/PersistencyManager.swift; sourceTree = "<group>"; };
+		14ADB5B91F2ECB8A008BB54B /* AlbumExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumExtensions.swift; path = model/AlbumExtensions.swift; sourceTree = "<group>"; };
+		14ADB5BC1F2ECCC2008BB54B /* HorizontalScroller_SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScroller_SnapKit.swift; sourceTree = "<group>"; };
+		14ADB5BD1F2ECCC2008BB54B /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		14ADB5C01F2ECD60008BB54B /* HorizontalScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScroller.swift; sourceTree = "<group>"; };
 		D2CAAA871EA479AD00785B37 /* BlueLibrarySwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueLibrarySwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CAAA8A1EA479AD00785B37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CAAA8C1EA479AD00785B37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14ADB5BB1F2ECC1A008BB54B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D2CAAA8C1EA479AD00785B37 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		D2CAAA7E1EA479AC00785B37 = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				D2CAAABE1EA47A6D00785B37 /* API */,
+				14ADB5BB1F2ECC1A008BB54B /* Controller */,
 				D2CAAABD1EA47A6600785B37 /* model */,
-				D2CAAABB1EA47A4900785B37 /* view */,
+				D2CAAABB1EA47A4900785B37 /* View */,
 				D2CAAA8A1EA479AD00785B37 /* AppDelegate.swift */,
-				D2CAAA8C1EA479AD00785B37 /* ViewController.swift */,
 				D2CAAA8E1EA479AD00785B37 /* Main.storyboard */,
 				D2CAAA941EA479AD00785B37 /* Assets.xcassets */,
 				D2CAAA961EA479AD00785B37 /* LaunchScreen.storyboard */,
@@ -144,17 +159,21 @@
 			path = BlueLibrarySwiftUITests;
 			sourceTree = "<group>";
 		};
-		D2CAAABB1EA47A4900785B37 /* view */ = {
+		D2CAAABB1EA47A4900785B37 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14ADB5BD1F2ECCC2008BB54B /* AlbumView.swift */,
+				14ADB5BC1F2ECCC2008BB54B /* HorizontalScroller_SnapKit.swift */,
+				14ADB5C01F2ECD60008BB54B /* HorizontalScroller.swift */,
 			);
-			name = view;
+			path = View;
 			sourceTree = "<group>";
 		};
 		D2CAAABD1EA47A6600785B37 /* model */ = {
 			isa = PBXGroup;
 			children = (
 				D2CAAAC11EA47E1900785B37 /* Album.swift */,
+				14ADB5B91F2ECB8A008BB54B /* AlbumExtensions.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -163,9 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				144985571EA4A49E009E1EE7 /* LibraryAPI.swift */,
-				144985511EA49771009E1EE7 /* LocalFileManager.swift */,
 				144985551EA4A027009E1EE7 /* HttpClientManager.swift */,
 				144985591EA4B52C009E1EE7 /* PersistencyManager.swift */,
+				144985511EA49771009E1EE7 /* LocalFileManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -304,11 +323,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14ADB5BE1F2ECCE1008BB54B /* AlbumView.swift in Sources */,
 				D2CAAA8D1EA479AD00785B37 /* ViewController.swift in Sources */,
+				14ADB5BA1F2ECB8A008BB54B /* AlbumExtensions.swift in Sources */,
 				D2CAAA931EA479AD00785B37 /* BlueLibrarySwift.xcdatamodeld in Sources */,
 				144985581EA4A49E009E1EE7 /* LibraryAPI.swift in Sources */,
 				D2CAAAC01EA47AF700785B37 /* readme.md in Sources */,
 				1449855A1EA4B52C009E1EE7 /* PersistencyManager.swift in Sources */,
+				14ADB5C11F2ECD60008BB54B /* HorizontalScroller.swift in Sources */,
 				D2CAAA8B1EA479AD00785B37 /* AppDelegate.swift in Sources */,
 				D2CAAAC21EA47E1900785B37 /* Album.swift in Sources */,
 				144985521EA49771009E1EE7 /* LocalFileManager.swift in Sources */,

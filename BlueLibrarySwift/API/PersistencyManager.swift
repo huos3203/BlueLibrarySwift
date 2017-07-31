@@ -64,12 +64,36 @@ class PersistencyManager
             albums.append(album)
         }
     }
-    
+    func saveAlbums() {
+        var filename = NSHomeDirectory().appending("/Documents/albums.bin")
+        let data = NSKeyedArchiver.archivedData(withRootObject: albums)
+        (data as! NSData).writeToFile(filename, atomically: true)
+    }
     //删除操作
-    func deleteAlbum(_ index:Int) {
+    func deleteAlbumAt(_ index:Int) {
         //
         albums.remove(at: index)
     }
     
-
+    func getImage(_ filename: String) -> UIImage? {
+        var err: Error?
+        let path = NSHomeDirectory().appending("/Documents/\(filename)")
+        var data:Data!
+        do {
+            data = try NSData.init(contentsOfFile: path, options: .uncachedRead) as Data!
+        } catch {
+            err = error
+        }
+        if err != nil {
+            return nil
+        } else {
+            return UIImage(data: data as Data)
+        }
+    }
+    
+    func saveImage(image: UIImage, filename: String) {
+        let path = NSHomeDirectory().appending("/Documents/\(filename)")
+        let data = UIImagePNGRepresentation(image)
+        (data as! NSData).writeToFile(path, atomically: true)
+    }
 }

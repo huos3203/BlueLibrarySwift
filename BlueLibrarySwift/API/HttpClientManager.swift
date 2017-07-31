@@ -38,6 +38,14 @@ class HttpClientManager: NSObject
         
     }
     
+    ///
+    func downloadImage(url: String) -> (UIImage) {
+        let aUrl = URL(string: url)
+        let data = try! Data(contentsOf: aUrl!)
+        let image = UIImage(data: data)
+        return image!
+    }
+    
     
     /// del api
     func delBy(albumId:String,hander:@escaping handlerType)
@@ -54,6 +62,10 @@ class HttpClientManager: NSObject
             
             hander(URL.init(string: "")!)
         }
+    }
+    
+    func postRequest(_ url: String, body: String) -> (AnyObject){
+        return NSData()
     }
     /// add api
     

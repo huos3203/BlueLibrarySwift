@@ -52,6 +52,7 @@
 		14ADB5BC1F2ECCC2008BB54B /* HorizontalScroller_SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScroller_SnapKit.swift; sourceTree = "<group>"; };
 		14ADB5BD1F2ECCC2008BB54B /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		14ADB5C01F2ECD60008BB54B /* HorizontalScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScroller.swift; sourceTree = "<group>"; };
+		14B3ECE01F2F37D200E5D57F /* HorizontalScroller.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = HorizontalScroller.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D2CAAA871EA479AD00785B37 /* BlueLibrarySwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueLibrarySwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CAAA8A1EA479AD00785B37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CAAA8C1EA479AD00785B37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		D2CAAA7E1EA479AC00785B37 = {
 			isa = PBXGroup;
 			children = (
+				14B3ECE01F2F37D200E5D57F /* HorizontalScroller.playground */,
 				D2CAAABF1EA47AF700785B37 /* readme.md */,
 				D2CAAA891EA479AD00785B37 /* BlueLibrarySwift */,
 				D2CAAAA11EA479AE00785B37 /* BlueLibrarySwiftTests */,
